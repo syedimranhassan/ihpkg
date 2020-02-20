@@ -1,0 +1,9 @@
+deploy:
+  provider: pypi
+  user: ihassan
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    condition: "$TOXENV=quality"
+  password:
+    secure:
