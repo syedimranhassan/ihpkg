@@ -29,4 +29,3 @@ setup(
         'edx-rest-api-client>=1.5.0,<2.0.0'
     ],
 )
-© 2020 GitHub, Inc.
