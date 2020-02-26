@@ -1,0 +1,7 @@
+README.md
+setup.py
+test_bachat.egg-info/PKG-INFO
+test_bachat.egg-info/SOURCES.txt
+test_bachat.egg-info/dependency_links.txt
+test_bachat.egg-info/requires.txt
+test_bachat.egg-info/top_level.txt
