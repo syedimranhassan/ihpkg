@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: test-bachat
+Version: 0.0.1
+Summary: Celery tasks supporting the operations of edX's ecommerce service
+Home-page: https://github.com/syedimranhassan/ihpkg
+Author: ihassan
+Author-email: ihassan@edx.org
+License: AGPL
+Description: # ihpkg
+        just for test jenkins job
+        
+Keywords: ihassan test jenkins
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
