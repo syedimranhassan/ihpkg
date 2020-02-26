@@ -5,7 +5,7 @@ with open('README.md') as readme:
     long_description = readme.read()
 
 setup(
-    name='test-nomore',
+    name='test-bachat',
     version='0.0.1',
     description='Celery tasks supporting the operations of edX\'s ecommerce service',
     long_description=long_description,
