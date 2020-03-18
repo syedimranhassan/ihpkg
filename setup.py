@@ -6,7 +6,7 @@ with open('README.md') as readme:
 
 setup(
     name='test-zongissue',
-    version='0.0.3',
+    version='0.0.4',
     description='Celery tasks supporting the operations of edX\'s ecommerce service',
     long_description=long_description,
     classifiers=[
