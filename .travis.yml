@@ -4,6 +4,9 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    condition: "$TOXENV=quality"
+    condition: $TOXENV=quality
   password:
-    secure:
+    secure: 
+env:
+  global:
+    secure: l28iJuelB8QPKdTeAZPmgXV814eYGndTHYdayYZy+2qbxW+AKQUhwra9vWrlwZ/Yo+PPKy0RphQmF88IcrRZm9CgJU/tbgl7PJE6KPYDMsW7C+RmK0smcV0hDRYB5MsZFg+G8hbm6HH6vYp13yZIU9eJcPdSMG3UlVASU8CL2UAPLNHJhPBnuFbuEeMpSQ4yp4r7Ck4lSh4DucKop0Tda3+osSG6/VRi6casIeqLgwiMssmG+87BJsv1QpdNAru2wZgael8pEilJakGfkBqRbrORZbYzMvx0/vAYJ9niB1czOfwPiUV1Qtpz1PURB0kIsdzFI9Eu6fwBdkVkJWowa9rKitR3WwE7pwo6s1li5B9EM1ngde8R8nf/N4cT5f01B+KXHZieosgY/VfFoZ42z7ogJ+u/fSp9Vk74oJv/q6R+ryBrRKVGFEHRAQ0lIKWX2QDNd3yV1CeFGR2zrXzJAURb/T6bypxrZxtIoRwsQmxUT0uTRjU1Ykvomjoo3EsL0rInNhR8yv88dQ4X0IgFV/xUOvUn4jZELamaOh/sd4uxlAnWfvbCCYI9nfJzMIXO71qpdm7U8/vidZtyZquZvB1WIkIeh5kFgitpO5fuY6/RGCC1BmUB21pMtzSEmSoDCr+mWmYj806eqx6zyl396I0N55y/Y2HWw9p9IUOOing=
