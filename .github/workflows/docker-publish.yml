@@ -1,0 +1,66 @@
+name: Docker
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: imrantest
+
+jobs:
+#   # Run tests.
+#   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
+#   test:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v2
+
+#       - name: Run tests
+#         run: |
+#           if [ -f docker-compose.test.yml ]; then
+#             docker-compose --file docker-compose.test.yml build
+#             docker-compose --file docker-compose.test.yml run sut
+#           else
+#             docker build . --file Dockerfile
+#           fi
+
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  push:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . -f Dockerfile -t syedimranhassan/test
+          docker build . -f Dockerfile --target edx.org -t syedimranhassan/test:latest-newrelic
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Push image
+        run: |
+          docker tag syedimranhassan/test syedimranhassan/test:${GITHUB_SHA}
+          docker tag syedimranhassan/test:latest-newrelic syedimranhassan/test:${GITHUB_SHA}-newrelic
+          docker push 'syedimranhassan/test:latest'
+          docker push "syedimranhassan/test:${GITHUB_SHA}"
+          docker push 'syedimranhassan/test:latest-newrelic'
+          docker push "syedimranhassan/test:${GITHUB_SHA}-newrelic"
+           
