@@ -5,7 +5,7 @@ with open('README.md') as readme:
     long_description = readme.read()
 
 setup(
-    name='test-zongissue',
+    name='test-zongissuess',
     version='0.0.8',
     description='Celery tasks supporting the operations of edX\'s ecommerce service',
     long_description=long_description,
