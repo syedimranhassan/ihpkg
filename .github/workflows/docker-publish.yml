@@ -18,10 +18,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build and Push docker image
-        run : make docker_push
         env:
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        run : make docker_push
+
 
         #- name: Build image
         #run: |
