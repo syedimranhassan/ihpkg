@@ -19,6 +19,9 @@ jobs:
 
       - name: Build and Push docker image
         run : make travis_docker_push
+        env:
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
         #- name: Build image
         #run: |
