@@ -10,7 +10,7 @@ docker_tag: docker_build
 	docker tag syedimranhassan/test:latest-newrelic syedimranhassan/test:${GITHUB_SHA}-newrelic
 
 docker_auth:
-        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+	echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 docker_push: docker_tag docker_auth ## push to docker hub
 	docker push 'syedimranhassan/test:latest'
