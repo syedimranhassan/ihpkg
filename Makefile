@@ -3,7 +3,7 @@
 
 docker_build:
 	docker build . -f Dockerfile -t syedimranhassan/test
-	docker build . -f Dockerfile -t syedimranhassan/test:latest-newrelic
+	docker build . -f Dockerfile --target newrelic -t syedimranhassan/test:latest-newrelic
 
 docker_tag: docker_build
 	docker tag syedimranhassan/test syedimranhassan/test:${GITHUB_SHA}
