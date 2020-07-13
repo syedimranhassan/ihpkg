@@ -1,2 +1,2 @@
 # ihpkg
-just for test jenkins job
+just for testing
