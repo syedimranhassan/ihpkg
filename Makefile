@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 docker_build:
-	docker build . -f Dockerfile -t syedimranhassan/test
+	docker build . -f Dockerfile --target app -t syedimranhassan/test
 	docker build . -f Dockerfile --target newrelic -t syedimranhassan/test:latest-newrelic
 
 docker_tag: docker_build
