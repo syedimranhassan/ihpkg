@@ -13,5 +13,6 @@ RUN apk update \
   && npm cache verify \
   && sed -i -e "s/bin\/ash/bin\/sh/" /etc/passwd
 
+from node-angular-cli as newrelic
 # Angular CLI
 RUN npm install -g @angular/cli@8
