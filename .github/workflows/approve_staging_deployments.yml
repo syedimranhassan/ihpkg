@@ -22,6 +22,6 @@ jobs:
         uses: "pascalgn/automerge-action@7ab42e888a333bf77ce865bc84fedc6a365a3548"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "staging-deployment"
+          MERGE_LABELS: github.event.label.name
           MERGE_FILTER_AUTHOR: "syedimranhassan"
           MERGE_METHOD: "merge"
