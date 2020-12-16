@@ -1,0 +1,27 @@
+# Used to auto approve/merge PRs that update container images in stage or PRs created by GoCD pipelines.
+# Works as an auto-deploying "pipeline"
+name: Automerge stage/gocd deployment
+
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+  pull_request_review:
+    types:
+      - submitted
+jobs:
+  approve_and_merge:
+    runs-on: [self-hosted, linux]
+    if: github.actor == 'edx-deployment' && (github.event.label.name == 'staging-deployment' || github.event.label.name == 'gocd-deployment')
+    steps:
+      - uses: hmarr/auto-approve-action@7782c7e2bdf62b4d79bdcded8332808fd2f179cd
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: automerge
+        uses: "pascalgn/automerge-action@7ab42e888a333bf77ce865bc84fedc6a365a3548"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "staging-deployment"
+          MERGE_FILTER_AUTHOR: "edx-deployment"
+          MERGE_METHOD: "merge"
