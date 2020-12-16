@@ -12,7 +12,7 @@ on:
       - submitted
 jobs:
   approve_and_merge:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     if: github.actor == 'syedimranhassan' && (github.event.label.name == 'staging-deployment' || github.event.label.name == 'gocd-deployment')
     steps:
       - uses: hmarr/auto-approve-action@7782c7e2bdf62b4d79bdcded8332808fd2f179cd
