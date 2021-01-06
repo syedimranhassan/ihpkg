@@ -28,3 +28,4 @@ setup(
         'edx-rest-api-client>=1.5.0,<2.0.0'
     ],
 )
+
