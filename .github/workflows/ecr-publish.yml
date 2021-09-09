@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -21,13 +23,7 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
- 
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Build, tag, and push image to Amazon ECR
         env:
             ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
