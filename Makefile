@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 docker_build:
-	docker build . -f Dockerfile --target node-angular-cli -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }}
+	docker build . -f Dockerfile --target node-angular-cli -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test
 	docker build . -f Dockerfile --target newrelic -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:latest-newrelic
 
 docker_tag: docker_build
