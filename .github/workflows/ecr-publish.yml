@@ -29,4 +29,6 @@ jobs:
             ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
             ECR_REPOSITORY: test
             IMAGE_TAG: ${{ github.sha }}
-        run : make docker_push
+        run: |
+          docker build . -f Dockerfile --target node-angular-cli -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }}
+          docker push '257477529851.dkr.ecr.us-east-1.amazonaws.com/test:latest'        
