@@ -1,16 +1,15 @@
-name: ECR
-
 on:
   push:
-    # Publish `master` as Docker `latest` image.
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+name: ECR
 
 jobs:
-  push:
-
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
 
     steps:
       - name: Configure AWS credentials
@@ -30,5 +29,5 @@ jobs:
             ECR_REPOSITORY: test
             IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build . -f Dockerfile --target node-angular-cli -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }}
-          docker push '257477529851.dkr.ecr.us-east-1.amazonaws.com/test:latest'        
+          docker build -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }} .
+          docker push '257477529851.dkr.ecr.us-east-1.amazonaws.com/test:latest'  
