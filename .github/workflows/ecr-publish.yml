@@ -29,5 +29,5 @@ jobs:
             ECR_REPOSITORY: test
             IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }} ../..
+          docker build -t 257477529851.dkr.ecr.us-east-1.amazonaws.com/test:${{ github.sha }} ../
           docker push '257477529851.dkr.ecr.us-east-1.amazonaws.com/test:latest'  
